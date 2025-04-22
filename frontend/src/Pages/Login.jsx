@@ -3,6 +3,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../Redux/Slice/authSlice";
 import { Link, useNavigate } from "react-router-dom";
+import { url } from "../utils/url";
 
 const Login = () => {
   const [messageApi, contextHolder] = message.useMessage();
@@ -10,7 +11,7 @@ const Login = () => {
   const navigate=useNavigate()
   const onFinish = async (values) => {
     try {
-      const response = await fetch("https://chococrafter.onrender.com/api/v1/auth/login", {
+      const response = await fetch(`${url}/api/v1/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),

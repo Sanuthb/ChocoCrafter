@@ -5,7 +5,7 @@ import {
   getTotalCost,
   removeItemFromCart,
   clearCart,
-} from "../redux/Slice/orderSlice";
+} from "../Redux/Slice/orderSlice";
 import { Button, Card, List, Popconfirm, message, Divider, Tag } from "antd";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";

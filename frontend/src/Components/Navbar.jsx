@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { UserOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { Badge, Button } from "antd";
 import { useSelector } from "react-redux";
-import { selectCart } from "../redux/Slice/orderSlice";
+import { selectCart } from "../Redux/Slice/orderSlice";
 
 const Navbar = () => {
   const { token } = useSelector((state) => state.auth);

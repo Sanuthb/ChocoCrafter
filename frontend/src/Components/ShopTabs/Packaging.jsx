@@ -1,6 +1,6 @@
 import { Form, Select, Card } from "antd";
 import { useDispatch } from "react-redux";
-import { setOrderOption } from "../../redux/Slice/orderSlice";
+import { setOrderOption } from "../../Redux/Slice/orderSlice";
 
 const { Option } = Select;
 

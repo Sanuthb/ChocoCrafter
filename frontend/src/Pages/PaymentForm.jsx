@@ -3,7 +3,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements, CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { clearCart, getTotalCost } from "../redux/Slice/orderSlice";
+import { clearCart, getTotalCost } from "../Redux/Slice/orderSlice";
 import { message } from "antd";
 import { url } from "../utils/url";
 

@@ -1,6 +1,6 @@
 import { Form, Checkbox, Card } from "antd";
 import { useDispatch } from "react-redux";
-import { setOrderOption } from "../../redux/Slice/orderSlice";
+import { setOrderOption } from "../../Redux/Slice/orderSlice";
 
 const options = [
   { label: "Vegan", value: "vegan" },
