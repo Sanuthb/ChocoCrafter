@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Tabs, Button, Popconfirm, message } from "antd";
 import { useDispatch } from "react-redux";
-import { addToCart, clearCart } from "../redux/Slice/orderSlice";
+import { addToCart, clearCart } from "../Redux/Slice/orderSlice";
 import ChocolateBase from "../Components/ShopTabs/ChocolateBase";
 import AddOnExtras from "../Components/ShopTabs/AddOnExtras";
 import DietaryPreferences from "../Components/ShopTabs/DietaryPreferences";
