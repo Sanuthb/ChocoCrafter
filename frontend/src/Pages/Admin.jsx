@@ -7,6 +7,7 @@ import {
 } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 import AdminSidebar from "../Components/AdminSidebar";
+import { url } from "../utils/url";
 
 const Admin = () => {
   const { token } = useSelector((state) => state.auth);
@@ -18,10 +19,10 @@ const Admin = () => {
   const fetchAdminData = async () => {
     try {
       const [usersRes, ordersRes] = await Promise.all([
-        fetch("http://localhost:3000/api/v1/admin/users", {
+        fetch(`${url}/api/v1/admin/users`, {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        fetch("http://localhost:3000/api/v1/admin/orders", {
+        fetch(`${url}/api/v1/admin/orders`, {
           headers: { Authorization: `Bearer ${token}` },
         }),
       ]);

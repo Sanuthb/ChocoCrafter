@@ -10,7 +10,7 @@ const Login = () => {
   const navigate=useNavigate()
   const onFinish = async (values) => {
     try {
-      const response = await fetch("http://localhost:3000/api/v1/auth/login", {
+      const response = await fetch("https://chococrafter.onrender.com/api/v1/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),

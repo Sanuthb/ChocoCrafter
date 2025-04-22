@@ -3,6 +3,7 @@ import { Button, Form, Input, message, Select } from "antd";
 import { useDispatch } from "react-redux";
 import { setUser } from "../Redux/Slice/authSlice";
 import { useNavigate } from "react-router-dom";
+import { url } from "../utils/url";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const Register = () => {
 
   const onFinish = async (values) => {
     try {
-      const res = await fetch("http://localhost:3000/api/v1/auth/register", {
+      const res = await fetch(`${url}/api/v1/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),

@@ -6,6 +6,7 @@ import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
+import { url } from "../utils/url";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const Dashboard = () => {
 
   const fetchOrders = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/v1/order/user/${user._id}`);
+      const res = await fetch(`${url}/api/v1/order/user/${user._id}`);
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Failed to fetch orders");
       setOrders(data);

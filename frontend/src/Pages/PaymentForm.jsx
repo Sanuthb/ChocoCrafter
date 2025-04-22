@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { clearCart, getTotalCost } from "../redux/Slice/orderSlice";
 import { message } from "antd";
+import { url } from "../utils/url";
 
 // Stripe public key
 const stripePromise = loadStripe("pk_test_51R6Kj6KomPn9UsXDNyAfzi4slafPgtLi5UGid2AoJb4CTH9aiu10ZQnkrUrPLSaK1QrsFm8l3f3kS2Sv1WYBSCqs00aoWmg42T");
@@ -58,7 +59,7 @@ const CheckoutForm = () => {
 
   const [isProcessing, setIsProcessing] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
+  
   const handlePayment = async (e) => {
     e.preventDefault();
     if (!stripe || !elements) return;
@@ -67,7 +68,7 @@ const CheckoutForm = () => {
 
     try {
       // Step 1: Create Payment Intent
-      const res = await fetch("http://localhost:3000/api/v1/payments/pay", {
+      const res = await fetch(`${url}/api/v1/payments/pay`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -111,7 +112,7 @@ const CheckoutForm = () => {
         }));
 
         // Step 4: Store order
-        const orderRes = await fetch("http://localhost:3000/api/v1/order/create", {
+        const orderRes = await fetch(`${url}/api/v1/order/create`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
