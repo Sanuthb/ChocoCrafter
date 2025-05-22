@@ -1,8 +1,9 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Tabs, Button, Popconfirm, message } from "antd";
-import { useDispatch } from "react-redux";
-import { addToCart, clearCart } from "../Redux/Slice/orderSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, clearCart, getCurrentProductCalories } from "../Redux/Slice/orderSlice";
+
 import ChocolateBase from "../Components/ShopTabs/ChocolateBase";
 import AddOnExtras from "../Components/ShopTabs/AddOnExtras";
 import DietaryPreferences from "../Components/ShopTabs/DietaryPreferences";
@@ -21,6 +22,8 @@ const Shop = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const calories = useSelector(getCurrentProductCalories);
 
   const success = () => {
     dispatch(addToCart());
@@ -44,7 +47,7 @@ const Shop = () => {
   return (
     <>
       <Navbar />
-      <div className="h-screen">
+      <div className="min-h-screen">
         {contextHolder}
         <div className="bg-[#fd85b2] w-full h-[30vh] flex items-center justify-center flex-col gap-2">
           <h1 className="text-center text-4xl text-white font-extrabold">Shop</h1>
@@ -53,7 +56,13 @@ const Shop = () => {
           </p>
         </div>
 
-        <div className="p-10 flex items-center justify-center">
+        <div className="p-10 flex items-center justify-center flex-col">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl font-semibold text-pink-700">
+              Total Calories: {calories} kcal
+            </h2>
+          </div>
+
           <Form form={form} layout="vertical">
             <Tabs defaultActiveKey="1">
               <TabPane tab="Chocolate Base" key="1">
