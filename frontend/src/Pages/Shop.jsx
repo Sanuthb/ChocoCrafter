@@ -23,7 +23,7 @@ const Shop = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const calories = useSelector(getCurrentProductCalories);
+  const calories = useSelector(getCurrentProductCalories) || 0;
 
   const success = () => {
     dispatch(addToCart());

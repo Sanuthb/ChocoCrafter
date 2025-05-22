@@ -122,14 +122,14 @@ export const getTotalCost = (state) =>
 
 export const getCurrentProductCost = (state) => {
   const product = state.order.currentProduct;
-  return keysToSum.reduce((total, key) => {
+  return keysToSum.reduce((totalcal, key) => {
     const value = product[key];
     if (Array.isArray(value)) {
-      value.forEach((item) => (total += priceMap[item] || 0));
+      value.forEach((item) => (totalcal += priceMap[item] || 0));
     } else {
-      total += priceMap[value] || 0;
+      totalcal += priceMap[value] || 0;
     }
-    return total;
+    return totalcal;
   }, 0);
 };
 
